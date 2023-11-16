@@ -1,78 +1,55 @@
+CREATE DATABASE Pizza_2213884;
+GO
 
-USE QVAN2213884;
-Go
+USE Pizza_2213884;
+GO
 
-/* Populate Driver table */
-INSERT INTO Driver
-VALUES ('D010','Mr','QuickVan','Winkle','12 Slow St','Sleepy Town','IM1 RU2','1939/07/30 00:00:00','0987-673892','WINKL-987654-RV9NA',11);
-INSERT INTO Driver
-VALUES ('D020','Ms','Alison','Grant','10 Rodney St','Glasborough','GL1 7TY','1964/04/12 00:00:00', '0987-673865','GRANT-857465-AG9NA',0);
-INSERT INTO Driver
-VALUES ('D030','Mr','David','Wilson','246 High St','Glasborough','FL2 6RE','1959/11/15 00:00:00' ,'0987-673892','WILSO-268464-DD9NA',0);
-INSERT INTO Driver
-VALUES ('D040','Mr','Ernie','Forres','87 Logie Road','Lourton','ED2 5GF','1970/02/03 00:00:00' ,'0987-673867','FORRE-675463-EF9NA',4);
-INSERT INTO Driver
-VALUES ('D050','Mrs','Lilian','Ryder','SeaView Seatown','Lourton','GL20 7KK','1968/12/12 00:00:00' ,'0987-673854','RYDER-985674-SM9NA',5);
-INSERT INTO Driver
-VALUES ('D060','Ms','Anna','Hill','Craigpark','Freekie','DD20 71H','1972/05/19 00:00:00' ,'09777-123456','HILL-985674-SM9NA',5);
+/* Create table Pizza */
 
-/* Populate customer table */
-INSERT INTO Customer
-VALUES ('C00010','Smith Bros Ltd','18 Welleck Lane','Glasborough','GL12 3ER','0171-738652');
-INSERT INTO Customer
-VALUES ('C00020','Smith & Smith Solicitors','29A Bigfee Close','Glasborough','GL26 7TR','0171-983333');
-INSERT INTO Customer
-VALUES ('C00030','BigBus Ltd','Corrie Circle','Glasborough','GL32 9TE','0172-765432');
-INSERT INTO Customer
-VALUES ('C00040','ANIMAID','Glasborough Rd','Freekie','GL88 5HJ','0154-192837');
-INSERT INTO Customer
-VALUES ('C00050','Chopsticks','27 Broughton St','Glasborough','GL14 8UU','0171-535452');
-
-/* Populate Deliver table */
-INSERT INTO Deliver
-VALUES ('DL00010','D010','C00010','L554 TTF','1995/11/10 11:25:00', '1995/11/10  12:10:00', '26 Craigton St., Glas',3.75,15.0,1,£0.00);
-INSERT INTO Deliver
-VALUES ('DL00020','D010','C00020','L554 TTF','1995/11/10 13:25:00', '1995/11/10 13:52:00','140 High St., Glas',2.80,5.60,1,£0.00);
-INSERT INTO Deliver
-VALUES ('DL00030','D020','C00010','M887 HLY','1995/12/28 14:10:00', '1995/12/28 15:00:00','FindCorp, Fasque',5.50,2.50,0,£0.00);
-INSERT INTO Deliver 
-VALUES ('DL00040','D020','C00020','M887 HLY', '1995/12/28 23:25:00', '1995/12/29 00:10:00','SalMech, Craigie Ind Est',3.90,11.00,0,£0.00);
-INSERT INTO Deliver
-VALUES ('DL00050','D030','C00010','L554 TTF','1996/01/04 08:15:00', '1996/01/04 08:30:00','Taz Restaurant, Granton',1.30,1.75,1,£0.00);
-INSERT INTO Deliver
-VALUES ('DL00060','D040','C00030','M879 TPL','1996/01/05 10:37:00', '1996/01/05 11:05:00','Penguin DIY, Hopetoun St.',2.00,2.45,1,£0.00);
-INSERT INTO Deliver
-VALUES ('DL00070','D050','C00040','M768 YDE','1996/01/06 10:05:00', '1996/01/06 10:20:00','40 Carnegie Brae, Glas',0.80,19.00,1,£0.00);
-INSERT INTO Deliver
-VALUES ('DL00080','D050','C00050','M768 YDE','1996/01/06 14:15:00', '1996/01/06 14:38:00','40 Carnegie Brae, Glas',1.10,13.65,0,£0.00);
+INSERT INTO Pizzas
+VALUES ( 'P01',	'Hawaiian',	'C01');
+INSERT INTO Pizzas
+VALUES ('P02',	'Stromboli', 'C02');
+INSERT INTO Pizzas
+VALUES ('P03',	'Meat Feast',	'C01');
 
 
-/* Populate Invoice table */
-INSERT INTO Invoice
-VALUES ('IV232423','1996/06/20 00:00:00','C00050',£87.00,1);
-INSERT INTO Invoice
-VALUES ('IV524252','1996/06/12 00:00:00','C00040',£65.00,0);
-INSERT INTO Invoice
-VALUES ('IV524362','1996/05/30 00:00:00','C00030',£17.00,1);
-INSERT INTO Invoice
-VALUES ('IV875365','1996/05/22 00:00:00','C00020',£42.00,0);
-INSERT INTO Invoice
-VALUES ('IV876345','1996/04/20 00:00:00','C00010',£23.00,1);
-INSERT INTO Invoice
-VALUES ('IV876350','1998/04/20 00:00:00','C00050',£56.00,1);
+INSERT INTO Chef
+VALUES ('C01',	'Mr',	'Cesare');
+INSERT INTO Chef
+VALUES ('C02',	'Ms',	'Lucrezia');
+INSERT INTO Chef
+VALUES ('C03',	'Mr',	'Paolo');
+INSERT INTO Chef
+VALUES ('C04',	'Mrs',	'Francesca');
 
-/* Populate Payslip table */
-INSERT INTO Payslip
-VALUES ('PS0000001','1996/06/12 00:00:00','D010',£450.00);
-INSERT INTO Payslip
-VALUES ('PS0000002','1996/06/10 00:00:00','D020',£347.00);
-INSERT INTO Payslip
-VALUES ('PS0000100','1996/08/15 00:00:00','D010',£243.00);
-INSERT INTO Payslip
-VALUES ('PS0000101','1996/08/16 00:00:00','D030',£321.00);
-INSERT INTO Payslip
-VALUES ('PS0000102','1996/08/17 00:00:00','D040',£123.00);
-INSERT INTO Payslip
-VALUES ('PS0000111','1996/08/21 00:00:00','D030',£85.00);
-INSERT INTO Payslip
-VALUES ('PS0000120','1996/07/09 00:00:00','D050',£165.00);
+INSERT INTO Topping
+VALUES ('T01',	'Chilli',	 0.5,	1)
+INSERT INTO Topping
+VALUES ('T02',	'Jalapeno',	 0.6, 	1)
+INSERT INTO Topping
+VALUES ('T03',	'Onion',     0.2,   1)
+INSERT INTO Topping
+VALUES ('T04',	'Pepper',    0.4,	1)
+INSERT INTO Topping
+VALUES ('T05',	'Ham',	     1.0,   0)
+INSERT INTO Topping
+VALUES ('T06',	'Pepperoni', 0.5,	0)
+INSERT INTO Topping
+VALUES ('T07',	'Mushroom',	 0.3,	1)
+INSERT INTO Topping
+VALUES ('T08', 'Pineapple',  1.0,	1)
+INSERT INTO Topping
+VALUES ('T09',	'Sausage',	 0.5,	0)
+INSERT INTO Topping
+VALUES ('T10',	'Olive',	 0.5,	1)
+
+INSERT INTO HasToppings
+VALUES('T05','P01'),('T08','P01'),('T03','P02'),('T01','P02'),('T02','P02'),
+('T09','P03'),('T06','P03'),('T03','P03');
+
+ALTER TABLE HasToppings DROP COLUMN hastoppings_id;
+SELECT * FROM HasToppings;
+
+
+
